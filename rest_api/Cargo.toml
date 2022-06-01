@@ -1,0 +1,30 @@
+[package]
+name = "rest_api"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[lib]
+name = "lib"
+path = "src/lib.rs"
+
+[[bin]]
+name = "rest-api"
+path = "src/bin.rs"
+
+[dependencies]
+# rocket = "0.5.0-rc.2"
+serde = "1.0.137"
+serde_json = "1.0.81"
+
+
+# To prevent conflict between rocket serde json and json of serde
+[dependencies.rocket]
+rocket = "0.5.0-rc.2"
+features = ["json"]
+
+[dependencies.rocket_contrib]
+version = "0.4.10"
+default-features = false
+features = ["json"]
